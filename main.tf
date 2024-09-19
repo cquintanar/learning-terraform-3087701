@@ -23,7 +23,7 @@ resource "aws_instance" "blog" {
   instance_type = var.instance_type
 
   vpc_security_group_ids = [aws_security_group.blog.id]
-  
+
   tags = {
     Name = "HelloWorld"
   }
@@ -43,7 +43,7 @@ resource "aws_security_group_rule" "blog_http_in" {
   protocol = "tcp"
   cidr_blocks = ["0.0.0.0/0"]
 
-  security_group_id = aws.security_group.blog.id
+  security_group_id = aws_security_group.blog.id
 }
 resource "aws_security_group_rule" "blog_https_in" {
   type = "ingress"
@@ -52,7 +52,7 @@ resource "aws_security_group_rule" "blog_https_in" {
   protocol = "tcp"
   cidr_blocks = ["0.0.0.0/0"]
 
-  security_group_id = aws.security_group.blog.id
+  security_group_id = aws_security_group.blog.id
 }
 
 resource "aws_security_group_rule" "blog_outbound" {
@@ -62,6 +62,6 @@ resource "aws_security_group_rule" "blog_outbound" {
   protocol = "-1"
   cidr_blocks = ["0.0.0.0/0"]
 
-  security_group_id = aws.security_group.blog.id
+  security_group_id = aws_security_group.blog.id
 }
 
