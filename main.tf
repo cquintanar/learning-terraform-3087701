@@ -29,7 +29,7 @@ resource "aws_instance" "blog" {
   }
 }
 
-resource "aws_resource_group" "blog" {
+resource "aws_security_group" "blog" {
   name = "blog"
   description = "Allow inbound http and https.  Allow everything outbound"
 
