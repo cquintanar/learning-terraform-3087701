@@ -19,7 +19,7 @@ variable "ami_filter" {
 variable "Environment" {
   description = "Development Environment"
 
-  type object ({
+  type = object ({
     name = string 
     nework_prefix = string 
   })
