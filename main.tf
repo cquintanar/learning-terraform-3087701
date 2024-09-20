@@ -18,10 +18,10 @@ module "blog_vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
   name = var.Environment.name
-  cidr = "${var.Environment.nework_prefix}.0.0/16"
+  cidr = "${var.Environment.network_prefix}.0.0/16"
 
   azs             = ["us-west-2a", "us-west-2b", "us-west-2c"]
-  public_subnets  = ["${var.Environment.nework_prefix}.101.0/24", "${var.Environment.nework_prefix}.102.0/24", "${var.Environment.nework_prefix}.103.0/24"]
+  public_subnets  = ["${var.Environment.network_prefix}.101.0/24", "${var.Environment.network_prefix}.102.0/24", "${var.Environment.network_prefix}.103.0/24"]
 
   tags = {
     Terraform = "true"
@@ -35,7 +35,7 @@ module "autoscaling" {
 
   name = "blog"
   min_size = var.asg_min_size
-  max_size = var.asg.max_size
+  max_size = var.asg_max_size
 
   vpc_zone_identifier = module.blog_vpc.public_subnets
   #target_group_arns = module.blog_alb.target_group_arns
