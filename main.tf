@@ -39,7 +39,7 @@ module "autoscaling" {
 
   vpc_zone_identifier = module.blog_vpc.public_subnets
   target_group_arns = module.blog_alb.target_group_arns
-  security_group = [blog.blog_sg.security_group_id]
+  security_groups = [blog.blog_sg.security_group_id]
 
   image_id = data.aws_ami.app_ami.id 
   instance_type = var.instance_type 
