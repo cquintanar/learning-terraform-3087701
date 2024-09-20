@@ -60,6 +60,6 @@ resource "aws_security_group" "blog" {
   name = "blog"
   description = "Allow inbound http and https.  Allow everything outbound"
 
-  vpc_id = data.aws_vpc.default.id 
+  vpc_id = module.blog_vpc.vpc_id
 }
 
