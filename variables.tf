@@ -21,7 +21,7 @@ variable "Environment" {
 
   type = object ({
     name = string 
-    nework_prefix = string 
+    network_prefix = string 
   })
 
   default = {
